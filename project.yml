@@ -32,6 +32,7 @@ _pg_default:      &postgis
 
 Stylesheet:
   - mss/map.mss
+  - mss/park.mss
   - mss/water.mss
 
 

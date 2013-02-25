@@ -1,0 +1,62 @@
+# needed cols
+# hard coded support for area=1/yes => polygon is in osm2pgsql
+# node,way   area         text         
+way        way_area     real                # This is calculated during import
+
+# These tags can be long but are useless for rendering.
+# This indicates that we shouldn't store them.
+# List from <http://lists.osm.org/pipermail/dev/2012-June/025046.html>
+# OsmType  Tag          DataType     Flags
+node,way        3dshapes:*      text    delete
+node,way        AND_nosr_r      text    delete
+node,way        b5m:*   text    delete
+node,way        bak:*   text    delete
+node,way        canvec:*        text    delete
+node,way        created_by      text    delete
+node,way        dcgis:* text    delete
+node,way        FIXME   text    delete
+node,way        geobase:*       text    delete
+node,way        gnis:*  text    delete
+node,way        kms:*   text    delete
+node,way        KSJ2:*  text    delete
+node,way        massgis:*       text    delete
+node,way        mvdgis:*        text    delete
+node,way        naptan:*        text    delete
+node,way        ngbe:*  text    delete
+node,way        nhd:*   text    delete
+node,way        NHD:*   text    delete
+node,way        note    text    delete
+node,way        note:*  text    delete
+node,way        notes   text    delete
+node,way        osak:*  text    delete
+node,way        source  text    delete
+node,way        source:*        text    delete
+node,way        sourcedb:*      text    delete
+node,way        tiger:* text    delete
+node,way        WroclawGIS:*    text    delete
+node,way        yh:*    text    delete
+node,way        rednap:* text   delete
+node,way        ideewfs:* text  delete
+node,way        ign:* text      delete
+
+# mark ways as polygon without creating a column for them
+node,way   addr:flats   text         phstore
+node,way   aeroway      text         phstore
+node,way   amenity      text         phstore
+node,way   boundary     text         phstore
+node,way   building     text         phstore
+node,way   historic     text         phstore
+node,way   golf         text         phstore
+node,way   landuse      text         phstore
+node,way   leisure      text         phstore
+node,way   man_made     text         phstore
+node,way   military     text         phstore
+node,way   natural      text         phstore
+node,way   place        text         phstore
+node,way   power        text         phstore
+node,way   railway      text         phstore
+node,way   shop         text         phstore
+node,way   sport        text         phstore
+node,way   tourism      text         phstore
+node,way   waterway     text         phstore
+

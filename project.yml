@@ -31,6 +31,7 @@ _pg_default:      &postgis
 # == Stylesheets =======================================================
 
 Stylesheet:
+  - mss/map.mss
   - mss/water.mss
 
 

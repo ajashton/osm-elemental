@@ -34,6 +34,7 @@ Stylesheet:
   - mss/map.mss
   - mss/park.mss
   - mss/water.mss
+  - mss/road.mss
 
 
 # == Layers ============================================================
@@ -81,3 +82,25 @@ Layer:
             or tags->'waterway' in ('riverbank', 'dock')
             or tags->'landuse' = 'reservoir'
         ) as x
+
+  # ---- Roads ---------------------------------------------------------
+
+  - <<: *layer
+    name: road
+    id:   road
+    Datasource:
+      <<: *postgis
+      table: >
+        ( select way, case
+            when tags->'highway' in ('living_street', 'pedestrian') then 5
+            when tags->'highway' in ('secondary_link', 'tertiary_link',
+              'unclassified', 'residential', 'road') then 4
+            when tags->'highway' in ('secondary', 'tertiary',
+              'trunk_link', 'primary_link') then 3
+            when tags->'highway' in ('trunk', 'primary', 'motorway_link') then 2
+            when tags->'highway' = 'motorway' then 1
+            else null end as class
+          from planet_osm_line
+          where tags ? 'highway'
+        ) as x
+

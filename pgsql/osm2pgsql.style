@@ -1,7 +1,5 @@
-# needed cols
-# hard coded support for area=1/yes => polygon is in osm2pgsql
-# node,way   area         text         
-way        way_area     real                # This is calculated during import
+way             way_area        real
+way             z_order         integer
 
 # These tags can be long but are useless for rendering.
 # This indicates that we shouldn't store them.
